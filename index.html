@@ -33,16 +33,13 @@
 <body>
 
 <!-- LOGIN -->
-<div class="center" id="login">
-  <div class="card">
-    <div class="logo">EGO<br>TRICK</div>
-    <div style="text-align:center;margin-bottom:6px"><span class="badge">PREMIUM</span></div>
-    <div class="subtitle">Acesso Exclusivo</div>
-    <input class="input" id="user" placeholder="Usuário" />
-    <input class="input" id="pass" type="password" placeholder="Senha" />
-    <button class="btn" onclick="login()">ENTRAR</button>
-    <div style="text-align:center;font-size:12px;margin-top:10px;color:#aaa">v2.5.1 Premium</div>
+<div id="login" class="card">
+  <div class="logo">
+    <div class="badge">PREMIUM</div>
+    <h2>EGO TRICK</h2>
   </div>
+
+  <button onclick="enter()">ENTRAR</button>
 </div>
 
 <!-- PAINEL -->
@@ -97,19 +94,12 @@
 
 <script>
 const expDays=30;
-function login(){
-  if(user.value==='selfish'&&pass.value==='selfishV1'){
-    login.classList.add('hidden');panel.classList.remove('hidden');
-    const d=new Date();d.setDate(d.getDate()+expDays);
-    expire.innerText='Licença válida até: '+d.toLocaleDateString();
-    log('Login autorizado | Licença '+expDays+' dias');
-  } else alert('Usuário ou senha incorretos');
+function enter(){
+  document.getElementById('login').classList.add('hidden');
+  document.getElementById('panel').classList.remove('hidden');
+  log("Sistema iniciado");
+  log("Painel carregado com sucesso");
 }
-function time(){return new Date().toLocaleTimeString()}
-function log(msg){terminal.innerText+="\n["+time()+"] "+msg;terminal.scrollTop=terminal.scrollHeight}
-function toggle(el,name){log(name+(el.checked?' ativado':' desativado'))}
-function aim(v){aimv.innerText=v+'%';log('Ajuste de mira definido em '+v+'%')}
-function start(){log('Inicializando módulos...');setTimeout(()=>log('Sistema EGO TRICK operacional'),800)}
 </script>
 
 </body>
