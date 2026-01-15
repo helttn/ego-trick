@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EGO TRICK VIP</title>
+  <style>
+    :root{
+      --bg:#0b0614;--card:#1a0f2e;--purple:#8b3dff;--purple-dark:#5b1fb8;
+      --text:#fff;--muted:#b9a7e8;--gold:#f5b642;--green:#00ff9c
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui;background:radial-gradient(circle at top,#2b145f,var(--bg));color:var(--text)}
+    .center{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+    .card{width:100%;max-width:420px;background:linear-gradient(180deg,#2a1360,var(--card));border-radius:20px;padding:24px;box-shadow:0 0 60px rgba(139,61,255,.6);animation:pulse 3s infinite}
+    @keyframes pulse{0%{box-shadow:0 0 40px rgba(139,61,255,.35)}50%{box-shadow:0 0 70px rgba(139,61,255,.8)}100%{box-shadow:0 0 40px rgba(139,61,255,.35)}}
+    .logo{width:140px;height:140px;border-radius:16px;margin:0 auto 12px;background:#000;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:22px;color:var(--purple);text-align:center}
+    .badge{display:inline-block;background:var(--gold);color:#000;font-weight:800;padding:6px 14px;border-radius:999px;font-size:14px}
+    .subtitle{text-align:center;color:var(--muted);margin-bottom:20px}
+    .input,select{background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px;margin-bottom:12px;color:#fff;width:100%;font-size:16px}
+    .btn{width:100%;border:none;border-radius:14px;padding:16px;font-size:18px;font-weight:800;background:linear-gradient(90deg,var(--purple),var(--purple-dark));color:#fff;cursor:pointer}
+    .hidden{display:none}
+    .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+    .vip{background:var(--gold);color:#000;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:800}
+    .expire{font-size:12px;color:var(--muted)}
+    .section{background:rgba(0,0,0,.35);border-radius:14px;padding:14px;margin-bottom:12px}
+    .section h3{margin:0 0 10px;font-size:15px;color:var(--muted)}
+    label{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:14px}
+    .slider{width:100%}
+    .terminal{background:#000;border-radius:10px;padding:10px;font-family:monospace;font-size:12px;height:130px;overflow-y:auto;color:var(--green);white-space:pre-line}
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="center" id="login">
+  <div class="card">
+    <div class="logo">EGO<br>TRICK</div>
+    <div style="text-align:center;margin-bottom:6px"><span class="badge">PREMIUM</span></div>
+    <div class="subtitle">Acesso Exclusivo</div>
+    <input class="input" id="user" placeholder="Usuário" />
+    <input class="input" id="pass" type="password" placeholder="Senha" />
+    <button class="btn" onclick="login()">ENTRAR</button>
+    <div style="text-align:center;font-size:12px;margin-top:10px;color:#aaa">v2.5.1 Premium</div>
+  </div>
+</div>
+
+<!-- PAINEL -->
+<div class="center hidden" id="panel">
+  <div class="card">
+    <div class="top"><strong>EGO TRICK</strong><span class="vip">VIP</span></div>
+    <div class="expire" id="expire"></div>
+
+    <div class="section">
+      <h3>MÓDULO PRECISÃO</h3>
+      <label><input type="checkbox" onchange="toggle(this,'Assistente Pro')"> Assistente Pro</label>
+      <label><input type="checkbox" onchange="toggle(this,'Estabilizador')"> Estabilizador</label>
+    </div>
+
+    <div class="section">
+      <h3>MÓDULO COMBATE</h3>
+      <label><input type="checkbox" onchange="toggle(this,'Tracking Avançado')"> Tracking Avançado</label>
+      <label><input type="checkbox" onchange="toggle(this,'Lock Premium')"> Lock Premium</label>
+      <label><input type="checkbox" onchange="toggle(this,'Precision Mode')"> Precision Mode</label>
+    </div>
+
+    <div class="section">
+      <h3>OTIMIZAÇÕES</h3>
+      <label><input type="checkbox" onchange="toggle(this,'Ultra Performance')"> Ultra Performance</label>
+      <label><input type="checkbox" onchange="toggle(this,'Calibração Auto')"> Calibração Auto</label>
+      <label><input type="checkbox" onchange="toggle(this,'Zero Latency')"> Zero Latency</label>
+    </div>
+
+    <div class="section">
+      <h3>CONFIGURAÇÕES</h3>
+      <div style="font-size:14px;margin-bottom:4px">Ajuste de Mira: <strong id="aimv">50%</strong></div>
+      <input class="slider" type="range" min="0" max="100" value="50" oninput="aim(this.value)">
+      <select id="iphone" onchange="log('Modelo selecionado: '+this.value)">
+        <option>iPhone 6</option><option>iPhone 6s</option><option>iPhone 7</option><option>iPhone 8</option>
+        <option>iPhone X</option><option>iPhone XR</option><option>iPhone XS</option>
+        <option>iPhone 11</option><option>iPhone 11 Pro</option><option>iPhone 11 Pro Max</option>
+        <option>iPhone 12</option><option>iPhone 12 Pro</option><option>iPhone 12 Pro Max</option>
+        <option>iPhone 13</option><option>iPhone 13 Pro</option><option>iPhone 13 Pro Max</option>
+        <option>iPhone 14</option><option>iPhone 14 Pro</option><option>iPhone 14 Pro Max</option>
+        <option>iPhone 15</option><option>iPhone 15 Pro</option><option>iPhone 15 Pro Max</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <h3>TERMINAL</h3>
+      <div class="terminal" id="terminal">[BOOT] Sistema aguardando comandos...</div>
+    </div>
+
+    <button class="btn" onclick="start()">⚡ INICIAR SISTEMA</button>
+  </div>
+</div>
+
+<script>
+const expDays=30;
+function login(){
+  if(user.value==='selfish'&&pass.value==='selfishV1'){
+    login.classList.add('hidden');panel.classList.remove('hidden');
+    const d=new Date();d.setDate(d.getDate()+expDays);
+    expire.innerText='Licença válida até: '+d.toLocaleDateString();
+    log('Login autorizado | Licença '+expDays+' dias');
+  } else alert('Usuário ou senha incorretos');
+}
+function time(){return new Date().toLocaleTimeString()}
+function log(msg){terminal.innerText+="\n["+time()+"] "+msg;terminal.scrollTop=terminal.scrollHeight}
+function toggle(el,name){log(name+(el.checked?' ativado':' desativado'))}
+function aim(v){aimv.innerText=v+'%';log('Ajuste de mira definido em '+v+'%')}
+function start(){log('Inicializando módulos...');setTimeout(()=>log('Sistema EGO TRICK operacional'),800)}
+</script>
+
+</body>
+</html>
